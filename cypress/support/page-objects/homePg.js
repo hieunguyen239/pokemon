@@ -13,6 +13,14 @@ class HomePage extends BasePage {
   get searchBtn() {
     return cy.get(locators.homePg.searchBtn);
   }
+
+  get pokemonCardEls() {
+    return cy.get(locators.homePg.pokemonCardEls);
+  }
+
+  goToHomePage() {
+    cy.visit("");
+  }
 }
 
 export const homePg = new HomePage();
