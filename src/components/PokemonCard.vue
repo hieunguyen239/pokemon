@@ -22,9 +22,9 @@ const pokemon = props.pokemon;
 </script>
 <style>
 .pokemon-image {
-  object-fit: cover;
-  /* height: 140px!important; */
+  height: 145px!important;
   width: 66%;
+  object-fit: contain;
 }
 .pokemon-card {
   display: flex;
