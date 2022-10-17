@@ -101,6 +101,7 @@ const elementColors = computed(() => ({
   poison: 'purple',
   fire: 'red',
   default: '#ddd',
+  bug: 'brown',
   water: 'blue',
 }));
 
