@@ -1,5 +1,5 @@
 <template>
-  <div class="pokemon-listing h-screen">
+  <div class="pokemon-listing">
     <div class="p-4">
       <img
         class="pokemon-title"
