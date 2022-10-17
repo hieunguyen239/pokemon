@@ -15,7 +15,9 @@
       </a>
       <div class="p-4 text-white">
         <router-link :to="`/listing/`">
-          &lt; Back to listing
+        <div class="">
+          <img class="arrow-icon" src="../../public/arrow-icon.png" alt="">
+        </div>
         </router-link>
       </div>
       <figure class="text-center">
@@ -155,7 +157,10 @@ function mapElementColor(color) {
 function handleFav() {
   if (favoriteList.value.indexOf(id) === -1) {
     favoriteList.value.push(id);
+    pokemonList.push(pokemon.value);
   } else {
+    const pokeindex = pokemonList.indexOf(id);
+    pokemonList.splice(pokeindex, 1);
     favoriteList.value = favoriteList.value.filter((i) => i !== id);
   }
 
@@ -197,5 +202,9 @@ onMounted(async () => {
 
 .mt-3:last-child {
   padding-bottom: 20px;
+}
+.arrow-icon {
+  width: 35px;
+  height: 35px;
 }
 </style>
