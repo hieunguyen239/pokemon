@@ -1,6 +1,6 @@
 <template>
   <div class="rounded-2xl border-solid shadow-xl pokemon-card bg-gray-50 m-2">
-    <div class="">
+    <div class="image-card">
       <img class="" :src="pokemon.image" alt="" />
     </div>
     <div>
@@ -21,8 +21,9 @@ const pokemon = props.pokemon;
 
 </script>
 <style>
-.pokemon-card {
-  /* width: 50%; */
+.image-card {
+  display: flex;
+  justify-content: center;
 }
 img {
   object-fit: cover;
