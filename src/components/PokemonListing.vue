@@ -1,5 +1,5 @@
 <template>
-  <div class="pokemon-listing cards">
+  <div class="pokemon-listing cards p-2">
     <PokemonCard
       v-for="pokemon in pokemonList"
       :key="pokemon.id"
