@@ -7,7 +7,7 @@
         alt=""
       />
     </div>
-  <div class="cards">
+  <div class="cards p-2">
     <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
       <router-link :to="`/detail/${pokemon.id}`">
         <PokemonCard :pokemon="pokemon" />
