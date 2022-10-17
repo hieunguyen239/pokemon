@@ -1,17 +1,19 @@
 <template>
   <div class="pokemon-listing cards">
-    <PokemonCard
-      v-for="pokemon in pokemonList"
-      :key="pokemon.id"
-      :pokemon="pokemon"
-    />
+    <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
+      <router-link :to="`/detail/${pokemon.id}`">
+        <PokemonCard :pokemon="pokemon" />
+      </router-link>
+    </div>
   </div>
 </template>
 <script setup lang="ts">
 import usePokemon from '@/compotitions/usePokemon';
 import PokemonCard from '@/components/PokemonCard.vue';
 
-const { pokemonList } = usePokemon();
+const { pokemonList, getPokemonList } = usePokemon();
+
+getPokemonList('https://pokeapi.co/api/v2/pokemon');
 </script>
 <style>
 .pokemon-listing {

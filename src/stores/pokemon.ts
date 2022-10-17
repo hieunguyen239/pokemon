@@ -6,6 +6,10 @@ function getStat(stats: any, name: string) {
   return stats.find((s: any) => s.stat.name === name).base_stat;
 }
 
+function getTypes(types: any) {
+  return types.map((type: any) => type.type.name);
+}
+
 export const usePokemonStore = defineStore('pokemon', {
   state: () => ({
     pageSize: 20,
@@ -24,21 +28,24 @@ export const usePokemonStore = defineStore('pokemon', {
         });
       }
     },
-    getPokemonData(url: string) {
-      api.get(url).then((response: any) => {
-        const pokemonData = response.data;
+    async getPokemonData(url: string) {
+      const response = await api.get(url);
 
-        this.pokemonList.push({
-          id: pokemonData.id,
-          name: pokemonData.name,
-          image: pokemonData.sprites.other['official-artwork'].front_default,
-          baseStats: {
-            hp: getStat(pokemonData.stats, 'hp'),
-            atk: getStat(pokemonData.stats, 'attack'),
-            def: getStat(pokemonData.stats, 'defense'),
-            spd: getStat(pokemonData.stats, 'speed'),
-          },
-        });
+      const pokemonData = response.data;
+
+      this.pokemonList.push({
+        id: pokemonData.id,
+        name: pokemonData.name,
+        image: pokemonData.sprites.other['official-artwork'].front_default,
+        baseStats: {
+          hp: getStat(pokemonData.stats, 'hp'),
+          atk: getStat(pokemonData.stats, 'attack'),
+          def: getStat(pokemonData.stats, 'defense'),
+          spd: getStat(pokemonData.stats, 'speed'),
+        },
+        types: getTypes(pokemonData.types),
+        weight: pokemonData.weight,
+        height: pokemonData.height,
       });
     },
   },

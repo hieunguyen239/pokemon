@@ -2,7 +2,7 @@ import { usePokemonStore } from '@/stores/pokemon';
 
 export default () => {
   const pokemonStore = usePokemonStore();
-  const { pokemonList, getPokemonList } = pokemonStore;
+  const { pokemonList, getPokemonData,  getPokemonList } = pokemonStore;
 
-  return { pokemonList, getPokemonList };
+  return { pokemonList, getPokemonData, getPokemonList };
 };
