@@ -155,7 +155,10 @@ function mapElementColor(color) {
 function handleFav() {
   if (favoriteList.value.indexOf(id) === -1) {
     favoriteList.value.push(id);
+    pokemonList.push(pokemon.value);
   } else {
+    const pokeindex = pokemonList.indexOf(id);
+    pokemonList.splice(pokeindex, 1);
     favoriteList.value = favoriteList.value.filter((i) => i !== id);
   }
 
