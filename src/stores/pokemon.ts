@@ -18,7 +18,6 @@ export const usePokemonStore = defineStore('pokemon', {
   }),
   actions: {
     async getPokemonList(url: string) {
-      console.log('action');
       const response = await api.get(url);
       const { data } = response;
 

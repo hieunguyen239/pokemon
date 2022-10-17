@@ -14,10 +14,15 @@
         </router-link>
       </div>
       <figure class="text-center">
-        <img :src="pokemon.image" alt="" srcset="" class="rounded-full inline-block" />
+        <img
+          :src="pokemon.image"
+          alt=""
+          srcset=""
+          class="rounded-full inline-block"
+        />
 
         <figcaption>
-          <h1 class="font-bold text-xl text-center my-2">Bulbasaur</h1>
+          <h1 class="font-bold text-xl text-center my-2">{{ pokemon.name.toUpperCase() }}</h1>
         </figcaption>
       </figure>
 
@@ -33,7 +38,7 @@
       </section>
       <section class="px-4 py-2 flex justify-center text-center">
         <div class="weight">
-          <div class="py-2 px-4">{{ pokemon.weight}} KG</div>
+          <div class="py-2 px-4">{{ pokemon.weight }} KG</div>
           <div>Weight</div>
         </div>
         <div class="height">
@@ -125,7 +130,6 @@ const baseStats = computed(() => {
 });
 
 const elements = computed(() => {
-  console.log('1', pokemon.value);
   const elements = ['poison', 'grass'];
 
   return elements;
@@ -144,7 +148,9 @@ function handleFav() {
 
 onMounted(async () => {
   show.value = true;
-  await fetchPokemonData();
+  if (!pokemonList.length) {
+    await fetchPokemonData();
+  }
   pokemon.value = pokemonList.find((p) => p.id === id);
 });
 </script>

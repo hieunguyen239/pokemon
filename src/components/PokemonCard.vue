@@ -1,10 +1,10 @@
 <template>
   <div class="rounded-2xl border-solid shadow-xl pokemon-card bg-gray-50 m-2">
-    <div class="image-card">
-      <img class="" :src="pokemon.image" alt="" />
+    <div class="flex justify-center">
+      <img class="pokemon-image" :src="pokemon.image" alt="" />
     </div>
     <div>
-      <p class="text-xl text-black text-center m-2">{{ pokemon.name }}</p>
+      <p class="text-sm text-black text-center m-2 uppercase">{{ pokemon.name }}</p>
     </div>
   </div>
 </template>
@@ -21,12 +21,14 @@ const pokemon = props.pokemon;
 
 </script>
 <style>
-.image-card {
-  display: flex;
-  justify-content: center;
-}
-img {
+.pokemon-image {
   object-fit: cover;
+  /* height: 140px!important; */
   width: 66%;
+}
+.pokemon-card {
+  display: flex;
+  flex-direction: column;
+  position: relative;
 }
 </style>
