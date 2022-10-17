@@ -2,7 +2,7 @@
   <Transition>
     <div class="detail relative" v-if="show">
       <a
-        class="absolute right-10 top-10 z-50"
+        class="absolute right-10 top-10 z-50 cursor-pointer"
         @click="handleFav"
         :class="{ favorited: isFavorite }"
       >
@@ -80,7 +80,7 @@ import usePokemon from '@/compotitions/usePokemon';
 const { pokemonList, getPokemonData } = usePokemon();
 const show = ref(false);
 let pokemon = ref({});
-let isFavorite = ref(true);
+let isFavorite = ref(false);
 
 const route = useRoute();
 const id = Number(route.params.id);
@@ -168,10 +168,10 @@ onMounted(async () => {
 }
 
 .fav-icon {
-  filter: invert(1);
+  filter: invert(0.5);
 }
 
 .favorited img {
-
+  filter: invert(1);
 }
 </style>
