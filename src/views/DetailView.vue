@@ -15,7 +15,7 @@
       </a>
       <div class="p-4 text-white">
         <router-link :to="`/listing/`">
-        <div class="">
+        <div class="inline-block">
           <img class="arrow-icon" src="../../public/arrow-icon.png" alt="">
         </div>
         </router-link>
