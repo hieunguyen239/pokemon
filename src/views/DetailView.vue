@@ -8,7 +8,7 @@
       >
         <img src="@/assets/heart.svg" alt="" srcset="" class="w-24 h-24 fav-icon " />
       </a>
-      <div class="p-4">
+      <div class="p-4 text-white">
         <router-link :to="`/listing/`">
           &lt; Back to listing
         </router-link>
@@ -22,13 +22,13 @@
         />
 
         <figcaption>
-          <h1 class="font-bold text-xl text-center my-2">{{ pokemon?.name?.toUpperCase() }}</h1>
+          <h1 class="font-bold text-xl text-center my-2 text-slate-50">{{ pokemon?.name?.toUpperCase() }}</h1>
         </figcaption>
       </figure>
 
       <section class="px-4 py-2 flex justify-center text-center">
         <div
-          class="py-2 px-4 text-white rounded-full shadow-sm mx-3"
+          class="py-2 px-4 text-white rounded-full shadow-sm mx-3 uppercase"
           v-for="element in pokemon.types"
           :key="element"
           :style="{ backgroundColor: mapElementColor(element) }"
@@ -36,17 +36,17 @@
           {{ element }}
         </div>
       </section>
-      <section class="px-4 py-2 flex justify-center text-center">
+      <section class="px-4 py-2 flex justify-center text-center text-slate-50">
         <div class="weight">
-          <div class="py-2 px-4">{{ pokemon.weight }} KG</div>
+          <div class="py-2 px-4 font-bold">{{ pokemon.weight }} KG</div>
           <div>Weight</div>
         </div>
         <div class="height">
-          <div class="py-2 px-4">{{ pokemon.height }} M</div>
+          <div class="py-2 px-4 font-bold">{{ pokemon.height }} M</div>
           <div>Height</div>
         </div>
       </section>
-      <section class="px-4">
+      <section class="px-4 text-slate-50">
         <h1 class="font-bold text-xl text-center my-2">Base Stats</h1>
         <div v-for="(stat, key) in baseStats" class="mt-3">
           <div class="flex justify-between mb-1">
@@ -173,5 +173,9 @@ onMounted(async () => {
 
 .favorited img {
   filter: invert(1);
+}
+
+.detail {
+  background: #29292c;
 }
 </style>
