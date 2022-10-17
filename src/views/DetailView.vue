@@ -77,7 +77,7 @@ const elementColors = computed(() => ({
 }));
 
 const baseStats = computed(() => {
-  console.log('stat', pokemon.value);
+  if (!pokemon.value.baseStats) return {};
   const stats = {
     HP: {
       current: pokemon.value.baseStats.hp,
@@ -127,7 +127,6 @@ onMounted(async () => {
   show.value = true;
   await fetchPokemonData();
   pokemon.value = pokemonList.find((p) => p.id === id);
-  console.log('123', pokemon.value);
 });
 </script>
 
