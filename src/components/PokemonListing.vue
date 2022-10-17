@@ -19,8 +19,8 @@
       <div @click="reset">View All</div>
     </div>
 
-    <div class="cards p-2">
-      <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
+    <div class="cards p-2 grid grid-cols-12 w-full">
+      <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon" class="col-span-6">
         <router-link :to="`/detail/${pokemon.id}`">
           <PokemonCard :pokemon="pokemon" />
         </router-link>
@@ -57,11 +57,6 @@ function reset() {
 <style>
 .pokemon-listing {
   background: #29292c;
-}
-
-.cards {
-  display: grid;
-  grid-template-columns: auto auto;
 }
 .pokemon-title {
 }
