@@ -6,7 +6,12 @@
         @click="handleFav"
         :class="{ favorited: isFavorite }"
       >
-        <img src="@/assets/heart.svg" alt="" srcset="" class="w-24 h-24 fav-icon " />
+        <img
+          src="@/assets/heart.svg"
+          alt=""
+          srcset=""
+          class="w-24 h-24 fav-icon"
+        />
       </a>
       <div class="p-4 text-white">
         <router-link :to="`/listing/`">
@@ -75,15 +80,17 @@
 <script setup>
 import { computed, ref, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
+import { getLocalStorage, setLocalStorage } from '@/helpers/storage';
 import usePokemon from '@/compotitions/usePokemon';
 
 const { pokemonList, getPokemonData } = usePokemon();
-const show = ref(false);
-let pokemon = ref({});
-let isFavorite = ref(false);
 
 const route = useRoute();
 const id = Number(route.params.id);
+const favoriteList = ref(JSON.parse(getLocalStorage('pokeFaverites') || '[]'));
+const show = ref(false);
+let pokemon = ref({});
+
 async function fetchPokemonData() {
   await getPokemonData(`https://pokeapi.co/api/v2/pokemon/${id}`);
 }
@@ -92,8 +99,12 @@ const elementColors = computed(() => ({
   poison: 'purple',
   fire: 'red',
   default: '#ddd',
-  water: 'blue'
+  water: 'blue',
 }));
+
+const isFavorite = computed(() => {
+  return favoriteList.value.indexOf(id) > -1;
+});
 
 const baseStats = computed(() => {
   if (!pokemon.value.baseStats) return {};
@@ -138,12 +149,17 @@ const elements = computed(() => {
 function mapElementColor(color) {
   const c = elementColors.value[color];
 
-
   return c || elementColors.value['default'];
 }
 
 function handleFav() {
-  console.log(123);
+  if (favoriteList.value.indexOf(id) === -1) {
+    favoriteList.value.push(id);
+  } else {
+    favoriteList.value = favoriteList.value.filter((i) => i !== id);
+  }
+
+  setLocalStorage('pokeFaverites', JSON.stringify(favoriteList.value));
 }
 
 onMounted(async () => {
