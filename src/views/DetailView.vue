@@ -178,4 +178,8 @@ onMounted(async () => {
 .detail {
   background: #29292c;
 }
+
+.mt-3:last-child {
+  padding-bottom: 20px;
+}
 </style>
