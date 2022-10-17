@@ -1,6 +1,11 @@
 <template>
   <Transition>
     <div class="detail" v-if="show">
+      <div class="p-4">
+        <router-link :to="`/listing/`">
+          &lt; Back to listing
+        </router-link>
+      </div>
       <figure class="text-center">
         <img
           :src="pokemon.image"
@@ -78,7 +83,8 @@ const elementColors = computed(() => ({
   grass: 'green',
   poison: 'purple',
   fire: 'red',
-  default: '#ccc',
+  default: '#ddd',
+  water: 'blue'
 }));
 
 const baseStats = computed(() => {
@@ -124,7 +130,8 @@ const elements = computed(() => {
 function mapElementColor(color) {
   const c = elementColors.value[color];
 
-  return c || elementColors['default'];
+
+  return c || elementColors.value['default'];
 }
 
 onMounted(async () => {
