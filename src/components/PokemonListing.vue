@@ -7,15 +7,23 @@
         alt=""
       />
     </div>
-  <div class="cards p-2">
-    <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
-      <router-link :to="`/detail/${pokemon.id}`">
-        <PokemonCard :pokemon="pokemon" />
+
+    <div class="text-center">
+      <router-link :to="`/favorite/`">
+        Go to Favorite
       </router-link>
     </div>
+
+
+    <div class="cards p-2">
+      <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
+        <router-link :to="`/detail/${pokemon.id}`">
+          <PokemonCard :pokemon="pokemon" />
+        </router-link>
+      </div>
+    </div>
   </div>
-  </div>
-  
+
 </template>
 <script setup lang="ts">
 import usePokemon from "@/compotitions/usePokemon";
