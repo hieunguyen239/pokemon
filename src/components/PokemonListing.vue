@@ -13,7 +13,9 @@ import PokemonCard from '@/components/PokemonCard.vue';
 
 const { pokemonList, getPokemonList } = usePokemon();
 
-getPokemonList('https://pokeapi.co/api/v2/pokemon');
+if (!pokemonList.length) {
+  getPokemonList('https://pokeapi.co/api/v2/pokemon');
+}
 </script>
 <style>
 .pokemon-listing {
