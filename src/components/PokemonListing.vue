@@ -8,7 +8,7 @@
       />
     </div>
 
-    <div class="text-center">
+    <div class="text-center text-white">
       <router-link :to="`/favorite/`">
         Go to Favorite
       </router-link>

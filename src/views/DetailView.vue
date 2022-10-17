@@ -37,11 +37,11 @@
         </div>
       </section>
       <section class="px-4 py-2 flex justify-center text-center text-slate-50">
-        <div class="weight">
+        <div class="weight w-32">
           <div class="py-2 px-4 font-bold">{{ pokemon.weight }} KG</div>
           <div>Weight</div>
         </div>
-        <div class="height">
+        <div class="height w-32">
           <div class="py-2 px-4 font-bold">{{ pokemon.height }} M</div>
           <div>Height</div>
         </div>
