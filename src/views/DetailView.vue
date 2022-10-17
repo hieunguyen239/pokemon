@@ -100,9 +100,10 @@ const elementColors = computed(() => ({
   grass: 'green',
   poison: 'purple',
   fire: 'red',
-  default: '#ddd',
+  default: '#6a99c0',
   bug: 'brown',
   water: 'blue',
+  flying: '#009688',
 }));
 
 const isFavorite = computed(() => {
