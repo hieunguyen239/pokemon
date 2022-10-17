@@ -1,5 +1,6 @@
 import { defineStore } from 'pinia';
 import api from '@/helpers/api';
+import { getLocalStorage } from '@/helpers/storage';
 import type { IPokemonData } from '@/model/IPokemonData';
 
 function getStat(stats: any, name: string) {
@@ -12,11 +13,18 @@ function getTypes(types: any) {
 
 export const usePokemonStore = defineStore('pokemon', {
   state: () => ({
-    pageSize: 20,
-    pageIndex: 1,
     pokemonList: [] as IPokemonData[],
   }),
   actions: {
+    getFavoriteList() {
+      this.pokemonList.splice(0, this.pokemonList.length);
+      const favoList = JSON.parse(getLocalStorage('pokeFaverites') || '[]');
+      if (favoList.length > 0) {
+        favoList.forEach((favoId: any) => {
+          this.getPokemonData(`https://pokeapi.co/api/v2/pokemon/${favoId}`);
+        });
+      }
+    },
     async getPokemonList(url: string) {
       const response = await api.get(url);
       const { data } = response;

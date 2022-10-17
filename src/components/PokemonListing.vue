@@ -8,12 +8,7 @@
       />
     </div>
 
-    <div class="text-center">
-      <router-link :to="`/favorite/`">
-        Go to Favorite
-      </router-link>
-    </div>
-
+    <div class="text-center" @click="favoriteFilter">Go to Favorite</div>
 
     <div class="cards p-2">
       <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
@@ -23,16 +18,19 @@
       </div>
     </div>
   </div>
-
 </template>
 <script setup lang="ts">
-import usePokemon from "@/compotitions/usePokemon";
-import PokemonCard from "@/components/PokemonCard.vue";
+import usePokemon from '@/compotitions/usePokemon';
+import PokemonCard from '@/components/PokemonCard.vue';
 
-const { pokemonList, getPokemonList } = usePokemon();
+const { pokemonList, getFavoriteList, getPokemonList } = usePokemon();
 
 if (!pokemonList.length) {
   getPokemonList('https://pokeapi.co/api/v2/pokemon');
+}
+
+function favoriteFilter() {
+  getFavoriteList();
 }
 </script>
 <style>
