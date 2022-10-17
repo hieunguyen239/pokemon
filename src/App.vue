@@ -1,10 +1,5 @@
 <script setup lang="ts">
 import { RouterLink, RouterView } from 'vue-router';
-import usePokemon from '@/compotitions/usePokemon';
-
-const { getPokemonList } = usePokemon();
-
-getPokemonList('https://pokeapi.co/api/v2/pokemon');
 </script>
 
 <template>

@@ -5,9 +5,9 @@ const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
   routes: [
     {
-      path: "/",
-      name: "home",
-      component: () => import("@/components/PokemonListing.vue"),
+      path: '/',
+      name: 'home',
+      component: () => import('@/components/PokemonListing.vue'),
     },
     {
       path: "/listing",
@@ -18,7 +18,7 @@ const router = createRouter({
       component: () => import("@/components/PokemonListing.vue"),
     },
     {
-      path: "/detail",
+      path: "/detail/:id",
       name: "detail",
       // route level code-splitting
       // this generates a separate chunk (About.[hash].js) for this route
