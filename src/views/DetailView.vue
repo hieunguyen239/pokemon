@@ -1,6 +1,13 @@
 <template>
   <Transition>
-    <div class="detail" v-if="show">
+    <div class="detail relative" v-if="show">
+      <a
+        class="absolute right-10 top-10 z-50"
+        @click="handleFav"
+        :class="{ favorited: isFavorite }"
+      >
+        <img src="@/assets/heart.svg" alt="" srcset="" class="w-24 h-24 fav-icon " />
+      </a>
       <div class="p-4">
         <router-link :to="`/listing/`">
           &lt; Back to listing
@@ -68,6 +75,7 @@ import usePokemon from '@/compotitions/usePokemon';
 const { pokemonList, getPokemonData } = usePokemon();
 const show = ref(false);
 let pokemon = ref({});
+let isFavorite = ref(true);
 
 const route = useRoute();
 const id = Number(route.params.id);
@@ -130,6 +138,10 @@ function mapElementColor(color) {
   return c || elementColors.value['default'];
 }
 
+function handleFav() {
+  console.log(123);
+}
+
 onMounted(async () => {
   show.value = true;
   await fetchPokemonData();
@@ -147,5 +159,13 @@ onMounted(async () => {
 .v-leave-to {
   transform: translateY(-100%);
   opacity: 0;
+}
+
+.fav-icon {
+  filter: invert(1);
+}
+
+.favorited img {
+
 }
 </style>
