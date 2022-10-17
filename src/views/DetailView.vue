@@ -53,7 +53,7 @@
           <div>Height</div>
         </div>
       </section>
-      <section class="px-4 text-slate-50">
+      <section class="px-4 text-slate-50 w-96 mx-auto">
         <h1 class="font-bold text-xl text-center my-2">Base Stats</h1>
         <div v-for="(stat, key) in baseStats" class="mt-3">
           <div class="flex justify-between mb-1">
