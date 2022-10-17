@@ -10,7 +10,7 @@
           src="@/assets/heart.svg"
           alt=""
           srcset=""
-          class="w-24 h-24 fav-icon"
+          class="w-14 h-14 fav-icon"
         />
       </a>
       <div class="p-4 text-white">

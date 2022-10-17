@@ -10,7 +10,7 @@
 
     <div class="flex text-center justify-center text-white">
       <div @click="favoriteFilter" class="mr-5">Go to Favorite</div>
-      <div @click="reset">Reset</div>
+      <div @click="reset">View All</div>
     </div>
 
     <div class="cards p-2">
