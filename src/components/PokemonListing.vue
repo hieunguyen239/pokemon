@@ -8,7 +8,10 @@
       />
     </div>
 
-    <div class="text-center" @click="favoriteFilter">Go to Favorite</div>
+    <div class="flex text-center justify-center text-white">
+      <div @click="favoriteFilter" class="mr-5">Go to Favorite</div>
+      <div @click="reset">Reset</div>
+    </div>
 
     <div class="cards p-2">
       <div v-for="pokemon in pokemonList" :key="pokemon.id" :pokemon="pokemon">
@@ -31,6 +34,11 @@ if (!pokemonList.length) {
 
 function favoriteFilter() {
   getFavoriteList();
+}
+
+function reset() {
+  pokemonList.splice(0, pokemonList.length);
+  getPokemonList('https://pokeapi.co/api/v2/pokemon');
 }
 </script>
 <style>
