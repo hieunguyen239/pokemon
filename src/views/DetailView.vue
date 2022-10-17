@@ -27,13 +27,13 @@
         />
 
         <figcaption>
-          <h1 class="font-bold text-xl text-center my-2 text-slate-50">{{ pokemon?.name?.toUpperCase() }}</h1>
+          <h1 class="font-bold text-xl text-center my-2 text-slate-50 tracking-wider">{{ pokemon?.name?.toUpperCase() }}</h1>
         </figcaption>
       </figure>
 
-      <section class="px-4 py-2 flex justify-center text-center">
+      <section class="px-4 py-2 flex justify-center text-center tracking-wider">
         <div
-          class="py-2 px-4 text-white rounded-full shadow-sm mx-3 uppercase"
+          class="py-2 px-4 text-white rounded-full shadow-sm mx-3 uppercase w-32 font-semibold"
           v-for="element in pokemon.types"
           :key="element"
           :style="{ backgroundColor: mapElementColor(element) }"
@@ -42,11 +42,11 @@
         </div>
       </section>
       <section class="px-4 py-2 flex justify-center text-center text-slate-50">
-        <div class="weight">
+        <div class="weight w-32">
           <div class="py-2 px-4 font-bold">{{ pokemon.weight }} KG</div>
           <div>Weight</div>
         </div>
-        <div class="height">
+        <div class="height w-32">
           <div class="py-2 px-4 font-bold">{{ pokemon.height }} M</div>
           <div>Height</div>
         </div>
