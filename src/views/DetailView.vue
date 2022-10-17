@@ -22,7 +22,7 @@
         />
 
         <figcaption>
-          <h1 class="font-bold text-xl text-center my-2">{{ pokemon.name.toUpperCase() }}</h1>
+          <h1 class="font-bold text-xl text-center my-2">{{ pokemon?.name?.toUpperCase() }}</h1>
         </figcaption>
       </figure>
 
